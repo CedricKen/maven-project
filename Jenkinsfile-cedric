@@ -98,7 +98,7 @@ stage('build ') {
 
             steps {
                sh '''
-           docker build -t devopseasylearning2021:001 .
+           docker build -t devopseasylearning2021/cedric_0314:cedric001 .
                '''
             }
         }
