@@ -11,7 +11,7 @@ pipeline {
                           
 
                             string(
-                                defaultValue: '001', 
+                                defaultValue: '1.0.0', 
                                 name: 'Image-TAG', 
                                 trim: true
                             )
