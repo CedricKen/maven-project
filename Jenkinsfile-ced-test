@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+
+    environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+	}
+
     stages {
 
         stage('Setup parameters') {
@@ -22,6 +27,7 @@ pipeline {
 
         stage('clean') {
             agent {
+            rm -rf webapp/target/webapp.war || true
         docker { image 'maven:3.8.5-openjdk-11-slim' }
             }
             steps {
@@ -75,6 +81,7 @@ pipeline {
                 sh'''
                 mvn package 
                 ls -l webapp/target/
+                pwd
                 '''
             }
         }
