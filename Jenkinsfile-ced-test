@@ -56,7 +56,7 @@ pipeline {
             steps {
                 sh'''
                 mvn package 
-                ls -l webapp/
+                ls -l webapp/target
                 '''
             }
         }
@@ -85,7 +85,23 @@ pipeline {
             }
         }
 
-    
+
+
+        stage('build') {
+            
+            steps {
+               sh'''
+               docker build -t devopseasylearning2021/cedric_0314:005 
+               '''
+            }
+        }
+
+
+
+
+
+
+
     }
 }
 
