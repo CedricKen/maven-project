@@ -20,7 +20,7 @@ pipeline {
                           
 
                             string(
-                                defaultValue: '001', 
+                                defaultValue: '1.0.0', 
                                 name: 'ImageTAG', 
                                 trim: true
                             )
@@ -58,6 +58,7 @@ pipeline {
             }
         }
 
+
 stage('validate') {
     agent {
                  docker { image 'maven:3.8.5-openjdk-8-slim' }
@@ -93,7 +94,7 @@ stage('package') {
                sh '''
             
               mvn package
-              ls -l webapp/target
+              ls -l webapp/target/
               pwd
                '''
             }
@@ -148,7 +149,7 @@ stage('build ') {
 
             steps {
                sh '''
-           docker build -t devopseasylearning2021/eric:$ImageTAG .
+           docker build -t devopseasylearning2021/cedric_0314:$ImageTAG .
                '''
             }
         }
@@ -171,7 +172,7 @@ stage('build ') {
      stage('Docker push ') {
             steps {
                sh '''
-              docker push devopseasylearning2021/eric:$ImageTAG 
+              docker push devopseasylearning2021/cedric_0314:$ImageTAG 
                 '''
             }
         }
