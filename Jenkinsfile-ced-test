@@ -4,6 +4,9 @@ pipeline {
     stages {
 
         stage('clean') {
+            agent {
+        docker { image 'maven:3.8.5-openjdk-11-slim' }
+            }
             steps {
                 sh '''
                 mvn clean
@@ -12,6 +15,9 @@ pipeline {
         }
     
         stage('validate') {
+            agent {
+        docker { image 'maven:3.8.5-openjdk-11-slim' }
+            }
             steps {
                 sh'''
                 mvn validate
@@ -21,6 +27,9 @@ pipeline {
     
     
         stage('compile') {
+            agent {
+        docker { image 'maven:3.8.5-openjdk-11-slim' }
+            }
             steps {
                 sh'''
                 mvn compile
@@ -29,6 +38,9 @@ pipeline {
         }
     
         stage('test ') {
+            agent {
+        docker { image 'maven:3.8.5-openjdk-11-slim' }
+            }
             steps {
                 sh'''
                 mvn test 
@@ -38,6 +50,9 @@ pipeline {
 
        
         stage('package ') {
+            agent {
+        docker { image 'maven:3.8.5-openjdk-11-slim' }
+            }
             steps {
                 sh'''
                 mvn package 
@@ -47,6 +62,9 @@ pipeline {
     
         
         stage('verify ') {
+            agent {
+        docker { image 'maven:3.8.5-openjdk-11-slim' }
+            }
             steps {
                 sh'''
                 mvn verify 
@@ -56,6 +74,9 @@ pipeline {
 
 
         stage('install ') {
+            agent {
+        docker { image 'maven:3.8.5-openjdk-11-slim' }
+            }
             steps {
                sh'''
                mvn install 
