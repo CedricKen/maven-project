@@ -3,6 +3,23 @@ pipeline {
 
     stages {
 
+        stage('Setup parameters') {
+            steps {
+                script { 
+                    properties([
+                        parameters([
+                    
+                            string(
+                                defaultValue: '1.0.0', 
+                                name: 'ImageTag', 
+                                trim: true
+                            )
+                        ])
+                    ])
+                }
+            }
+        }
+
         stage('clean') {
             agent {
         docker { image 'maven:3.8.5-openjdk-11-slim' }
@@ -91,7 +108,7 @@ pipeline {
             
             steps {
                sh'''
-               docker build -t devopseasylearning2021/cedric_0314:005 
+               docker build -t devopseasylearning2021/cedric_0314:$ImageTag .
                '''
             }
         }
@@ -104,12 +121,6 @@ pipeline {
 
     }
 }
-
-
-
-
- 
-
 
 
 
