@@ -73,7 +73,7 @@ pipeline {
             steps {
                 sh'''
                 mvn package 
-                ls -l webapp/target
+                ls -l webapp/target/
                 '''
             }
         }
