@@ -179,7 +179,8 @@ stage('build ') {
     stage('Deploy with docker ') {
             steps {
                sh '''
-               docker run -d -p 8500:8080 devopseasylearning2021/cedric_0314:$ImageTAG 
+	       docker rm -f cedric_deploy || true
+               docker run -d --name cedric_deploy -p 8500:8080 devopseasylearning2021/cedric_0314:$ImageTAG 
 	       curl ifconfig.co
                 '''
             }
