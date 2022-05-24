@@ -20,6 +20,11 @@ pipeline {
                     properties([
                         parameters([
                           
+			  string(
+                                defaultValue: 'cedric', 
+                                name: 'env.BRANCH_NAME', 
+                                trim: true
+                            )
 
                             string(
                                 defaultValue: '001', 
