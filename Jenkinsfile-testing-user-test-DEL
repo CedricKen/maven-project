@@ -31,7 +31,7 @@ pipeline {
                              
                          
                           string(
-                                defaultValue: 'cedric',
+                                defaultValue: 'main',
                                 name: 'Please_leave_this_section_as_it_is',
                                 trim: true
                             ),
