@@ -167,7 +167,7 @@ stage('build ') {
 
             steps {
                sh '''
-           docker build -t devopseasylearning2021/eric:$ImageTAG .
+           docker build -t devopseasylearning2021/cedric_0314:$ImageTAG .
                '''
             }
         }
@@ -190,7 +190,7 @@ stage('build ') {
      stage('Docker push ') {
             steps {
                sh '''
-              docker push devopseasylearning2021/eric:$ImageTAG 
+              docker push devopseasylearning2021/cedric_0314:$ImageTAG 
                 '''
             }
         }
@@ -202,7 +202,7 @@ stage('build ') {
             steps {
                sh '''
                docker rm -f $(docker ps -aq)
-               docker run -d --name $BranchName -p 4089:8080 devopseasylearning2021/eric:$ImageTAG 
+               docker run -d --name $BranchName -p 9989:8080 devopseasylearning2021/cedric_0314:$ImageTAG 
                curl ifconfig.co 
                 '''
             }
