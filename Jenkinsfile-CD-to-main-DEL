@@ -34,7 +34,7 @@ pipeline {
                              
                          
                           string(
-                                defaultValue: 'develop',
+                                defaultValue: 'main',
                                 name: 'Please_leave_this_section_as_it_is',
                                 trim: true
                             ),
@@ -208,7 +208,7 @@ stage('build ') {
             steps {
                sh '''
                docker rm -f $(docker ps -aq) || true
-               docker run -d --name deploy -p 6720:8080 devopseasylearning2021/cedric_0314:$ImageTAG 
+               docker run -d --name cedric-deploy -p 552:8080 devopseasylearning2021/cedric_0314:$ImageTAG 
                curl ifconfig.co 
                 '''
             }
