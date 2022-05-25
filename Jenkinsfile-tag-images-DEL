@@ -20,7 +20,7 @@ pipeline {
                     properties([
                         parameters([
                            string(
-                                defaultValue: 'cedric', 
+                                defaultValue: 'main', 
                                 name: 'BranchName', 
                                 trim: true
                             ),
