@@ -34,7 +34,7 @@ pipeline {
                              
                          
                           string(
-                                defaultValue: 'cedric',
+                                defaultValue: 'main',
                                 name: 'Please_leave_this_section_as_it_is',
                                 trim: true
                             ),
@@ -79,11 +79,11 @@ version: "3"
 services:
     money:
        image: devopseasylearning2021/cedric-prod:$ImageTAG 
-       container_name: money
+       container_name: money-cedric
        expose:
         - 8080
        ports:
-         - 6740:8080
+         - 558:8080
 
 EOF
 
