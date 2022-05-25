@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-        label 'docker-agent'
+        label 'jenkins-docker2'
          }
    
    environment {
@@ -20,13 +20,13 @@ pipeline {
                     properties([
                         parameters([
                            string(
-                                defaultValue: 'develop', 
+                                defaultValue: 'cedric', 
                                 name: 'BranchName', 
                                 trim: true
                             ),
                             
                             string(
-                                defaultValue: '001', 
+                                defaultValue: '2.0.0', 
                                 name: 'ImageTAG', 
                                 trim: true
                             )
@@ -45,7 +45,7 @@ pipeline {
             steps {
                sh '''
                rm -rf ./*
-	       git clone -b $BranchName https://github.com/devopseasylearning/maven-project.git
+	       git clone -b $BranchName https://github.com/CedricKen/maven-project.git
            cp -r maven-project/* . 
            rm -rf maven-project/
            ls -l
