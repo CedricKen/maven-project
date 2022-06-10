@@ -29,7 +29,7 @@ pipeline {
          stage('Junit report') {
             steps {
                 echo 'Hello World'
-                sh 'sleep 1'
+                sh 'sleep 2'
             }
         }
 
