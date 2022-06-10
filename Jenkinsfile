@@ -14,7 +14,7 @@ pipeline {
         stage('Valading code syntax') {
             steps {
                 echo 'Hello Wgdfwgngfmmgjhmghjfwgwfgeorld'
-                sh 'sleep 1'
+                sh 'sleep 2'
             }
         }
 
